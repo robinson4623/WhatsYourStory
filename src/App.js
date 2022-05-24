@@ -9,7 +9,9 @@ import Header from './components/Header/Header'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
+import CreateStory from './components/stories/CreateStory'
 import ChangePassword from './components/auth/ChangePassword'
+import CreatePrompt from './components/stories/CreatePrompt'
 
 class App extends Component {
   constructor (props) {
@@ -84,6 +86,20 @@ class App extends Component {
             path='/change-password'
             render={() => (
               <ChangePassword msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-story'
+            render={() => (
+              <CreateStory msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/create-prompt'
+            render={() => (
+              <CreatePrompt msgAlert={this.msgAlert} user={user} />
             )}
           />
         </main>

@@ -33,17 +33,18 @@ export const signOut = (user) => {
     url: apiUrl + '/sign-out/',
     method: 'DELETE',
     headers: {
-      Authorization: `Bearer ${user.token}`
+      Authorization: `Token ${user.token}`
     }
   })
 }
 
 export const changePassword = (passwords, user) => {
+  console.log('this is user in changePassword', user)
   return axios({
-    url: apiUrl + '/change-password/',
+    url: apiUrl + '/change-pw/',
     method: 'PATCH',
     headers: {
-      Authorization: `Bearer ${user.token}`
+      Authorization: `Token ${user.token}`
     },
     data: {
       passwords: {

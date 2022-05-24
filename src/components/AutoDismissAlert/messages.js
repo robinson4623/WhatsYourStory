@@ -5,3 +5,7 @@ export const signInFailure = 'Failed to sign in. Check your email and password a
 export const signOutSuccess = 'Come back soon!'
 export const changePasswordSuccess = 'Password changed successfully!'
 export const changePasswordFailure = 'Failed to change passwords. Check your old password and try again.'
+export const storyCreateSuccess = 'Story created!  Try a new prompt!'
+export const storyCreateFailure = 'Uh oh.  Try a new creating your story again.'
+export const promptCreateSuccess = 'Prompt created!  Got any others?'
+export const promptCreateFailure = 'Uh oh.  Try a new creating your prompt again.'
