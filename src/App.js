@@ -10,8 +10,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import CreateStory from './components/stories/CreateStory'
+import IndexStory from './components/stories/IndexStory'
 import ChangePassword from './components/auth/ChangePassword'
-import CreatePrompt from './components/stories/CreatePrompt'
+import CreatePrompt from './components/prompts/CreatePrompt'
 
 class App extends Component {
   constructor (props) {
@@ -100,6 +101,13 @@ class App extends Component {
             path='/create-prompt'
             render={() => (
               <CreatePrompt msgAlert={this.msgAlert} user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/show-stories'
+            render={() => (
+              <IndexStory msgAlert={this.msgAlert} user={user} />
             )}
           />
         </main>

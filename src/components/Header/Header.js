@@ -9,6 +9,7 @@ const authenticatedOptions = (
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
     <NavLink to='/create-story' className='nav-link'>Create Story</NavLink>
     <NavLink to='/create-prompt' className='nav-link'>Create Prompt</NavLink>
+    <NavLink to='/show-stories' className='nav-link'>Show Stories</NavLink>
   </Fragment>
 )
 
@@ -26,9 +27,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
+  <Navbar sticky='top' bg='light' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>What&apos;s Your Story?</Link>
+      <Link to='/' style={{ color: '#4c4c4e', textDecoration: 'none' }}>What&apos;s Your Story?</Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
