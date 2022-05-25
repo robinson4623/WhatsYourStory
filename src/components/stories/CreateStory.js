@@ -57,6 +57,7 @@ class CreateStory extends Component {
         <StoryForm
           title={this.state.title}
           story={this.state.story}
+          user={this.props.user}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}/>
 

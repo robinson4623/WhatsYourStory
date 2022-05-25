@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-
+import BackgroundImage from './assets/1971385.jpg'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -13,6 +13,10 @@ import CreateStory from './components/stories/CreateStory'
 import IndexStory from './components/stories/IndexStory'
 import ChangePassword from './components/auth/ChangePassword'
 import CreatePrompt from './components/prompts/CreatePrompt'
+
+const backStyle = {
+  backgroundImage: `url(${BackgroundImage})`
+}
 
 class App extends Component {
   constructor (props) {
@@ -58,59 +62,61 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main className='container'>
+        <div style={backStyle}>
+	      <main className='container' >
 	        <Route
-            path='/sign-up'
-            render={() => (
-              <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            path='/sign-in'
-            render={() => (
-              <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/sign-out'
-            render={() => (
-              <SignOut
-                msgAlert={this.msgAlert}
-                clearUser={this.clearUser}
-                user={user}
-              />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/change-password'
-            render={() => (
-              <ChangePassword msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/create-story'
-            render={() => (
-              <CreateStory msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/create-prompt'
-            render={() => (
-              <CreatePrompt msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-          <AuthenticatedRoute
-            user={user}
-            path='/show-stories'
-            render={() => (
-              <IndexStory msgAlert={this.msgAlert} user={user} />
-            )}
-          />
-        </main>
+              path='/sign-up'
+              render={() => (
+                <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+              )}
+            />
+            <Route
+              path='/sign-in'
+              render={() => (
+                <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/sign-out'
+              render={() => (
+                <SignOut
+                  msgAlert={this.msgAlert}
+                  clearUser={this.clearUser}
+                  user={user}
+                />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/change-password'
+              render={() => (
+                <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/create-story'
+              render={() => (
+                <CreateStory msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/create-prompt'
+              render={() => (
+                <CreatePrompt msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+            <AuthenticatedRoute
+              user={user}
+              path='/show-stories'
+              render={() => (
+                <IndexStory msgAlert={this.msgAlert} user={user} />
+              )}
+            />
+          </main>
+        </div>
       </Fragment>
     )
   }

@@ -1,22 +1,61 @@
-import React from 'react'
-import Button from 'react-bootstrap/button'
-import Card from 'react-bootstrap/card'
+import React, { useState, useEffect } from 'react'
+import { Form, Card, Button } from 'react-bootstrap'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 
-const StoryForm = ({ handleChange, handleSubmit, title, story }) => (
-  <Card style={{ width: '18rem' }} class="shadow p-3 mb-5 bg-white rounded">
-    <Card.Img variant="top" src="https://picsum.photos/286/180" />
-    <Card.Body>
-      <Card.Title>Story</Card.Title>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input style= {{ paddingTop: '5px' }} name='title' onChange={handleChange} placeholder="Title of your story" value={title}></input>
-        </label>
-        <label>
-          <textarea style= {{ paddingTop: '20px', margin: '10px' }} name='story' onChange={handleChange} placeholder="Give us all the details!" value={story}></textarea>
-        </label>
-        <Button type="submit" class="btn-outline-primary">Submit</Button>
-      </form>
-    </Card.Body>
-  </Card>
-)
+const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
+  const [prompts, setPrompts] = useState([])
+  const randomIndex = (arrSize) => {
+    return Math.floor(Math.random() * arrSize)
+  }
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: apiUrl + '/prompts',
+      headers: {
+        Authorization: `Token ${user.token}`
+      }
+    })
+      .then((res) => {
+        // console.log(Object.values(res.data.uploads))
+        // return (Object.values(res.data.uploads))
+        return res
+      })
+
+      .then((res) => {
+        console.log(res.data.prompts)
+        setPrompts(res.data.prompts)
+
+        // .then(() => setLoading(false))
+      })
+      .catch(console.error)
+  }, []
+  )
+
+  return (
+    <Card style={{ width: '40rem' }} className="shadow p-3 mb-5 bg-white rounded mx-auto" >
+      <div className='row'>
+        <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+          <Card.Img variant="top" src="https://picsum.photos/286/180" />
+          <Card.Body>
+
+            {prompts.length > 0 ? <Card.Title>{prompts[randomIndex(prompts.length)].prompt}</Card.Title> : <Card.Title>Loading...</Card.Title>}
+
+            <Form onSubmit={handleSubmit}>
+
+              <input name='title' onChange={handleChange} placeholder="Title" value={title}></input>
+
+              <label>
+                <textarea name='story' onChange={handleChange} placeholder="Tell us!" value={story}></textarea>
+              </label>
+              <Button type="submit" class="btn-outline-primary">Submit</Button>
+            </Form>
+          </Card.Body>
+        </div>
+      </div>
+    </Card>
+
+  )
+}
 export default StoryForm

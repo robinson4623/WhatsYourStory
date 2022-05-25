@@ -52,13 +52,12 @@ class CreatePrompt extends Component {
     }
     return (
       <>
-        <h4>Create a Prompt</h4>
-
         <PromptForm
           name={this.state.name}
           prompt={this.state.prompt}
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}/>
+          handleChange={this.handleChange}
+        />
 
       </>
     )
