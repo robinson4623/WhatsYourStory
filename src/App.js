@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-import BackgroundImage from './assets/1971385.jpg'
+// import BackgroundImage from './assets/1971385.jpg'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
@@ -14,9 +14,9 @@ import IndexStory from './components/stories/IndexStory'
 import ChangePassword from './components/auth/ChangePassword'
 import CreatePrompt from './components/prompts/CreatePrompt'
 
-const backStyle = {
-  backgroundImage: `url(${BackgroundImage})`
-}
+// const backStyle = {
+//   backgroundImage: `url(${BackgroundImage})`
+// }
 
 class App extends Component {
   constructor (props) {
@@ -50,7 +50,7 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
+      <Fragment >
 	      <Header user={user} />
 	      {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
@@ -62,7 +62,7 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-        <div style={backStyle}>
+        <div >
 	      <main className='container' >
 	        <Route
               path='/sign-up'

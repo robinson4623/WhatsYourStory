@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Card, Button } from 'react-bootstrap'
+import { Form, Card, Button, Row } from 'react-bootstrap'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
@@ -43,12 +43,12 @@ const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
             <Card.Title>{randomPrompt}</Card.Title>
 
             <Form onSubmit={handleSubmit}>
-
-              <input name='title' onChange={handleChange} placeholder="Title" value={title}></input>
-
-              <label>
+              <Row>
+                <input name='title' onChange={handleChange} placeholder="Title" value={title}></input>
+              </Row>
+              <Row>
                 <textarea name='story' onChange={handleChange} placeholder="Tell us!" value={story}></textarea>
-              </label>
+              </Row>
               <Button type="submit" class="btn-outline-primary">Submit</Button>
             </Form>
           </Card.Body>

@@ -1,16 +1,12 @@
-import Form from 'react-bootstrap/Form'
+import { Form, Row } from 'react-bootstrap'
 
 // import Button from 'react-bootstrap/Button'
 import React, { useState } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-// import InputGroup from 'react-bootstrap/InputGroup'
-// import FormControl from 'react-bootstrap/FormControl'
-// import Thumbnail from './components/Body/Thumbnail'
+import { updateStorySuccess, updateStoryFailure } from './../AutoDismissAlert/messages'
 
-// const FormData = require('form-data')
-
-export default function Update ({ user, id, msgAlerts }) {
+export default function Update ({ user, id, msgAlert }) {
   // const [imageId, setImageId] = useState(null)
   const [title, setTitle] = useState('')
   const [story, setStory] = useState('')
@@ -53,7 +49,20 @@ export default function Update ({ user, id, msgAlerts }) {
         console.log('Updated')
         return (res)
       })
-      .catch(console.error)
+      .then(() =>
+        msgAlert({
+          heading: 'Updated Successfully',
+          message: updateStorySuccess,
+          variant: 'success'
+        })
+      )
+      .catch((error) => {
+        msgAlert({
+          heading: 'Failed updating your story: ' + error.message,
+          message: updateStoryFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   return (
@@ -61,8 +70,12 @@ export default function Update ({ user, id, msgAlerts }) {
 
       <Form onSubmit={handleSubmit}>
         <div>
-          <input id="storyId" name="title" onChange={handleChangeTitle} type="text" placeholder="edit Title" value={title}></input>
-          <input id="storyId" name="story" onChange={handleChangeStory} type="text" placeholder="edit Story" value={story}></input>
+          <Row>
+            <input id="storyId" name="title" onChange={handleChangeTitle} type="text" placeholder="edit Title" value={title}></input>
+          </Row>
+          <Row>
+            <textarea id="storyId" name="story" onChange={handleChangeStory} type="textarea" placeholder="edit Story" value={story}></textarea>
+          </Row>
           <button value="submit" onClick={handleSubmit}>Update</button>
         </div>
       </Form>
