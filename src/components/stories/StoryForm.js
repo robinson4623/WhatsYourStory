@@ -4,7 +4,8 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
 const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
-  const [prompts, setPrompts] = useState([])
+  // const [prompts, setPrompts] = useState([])
+  const [randomPrompt, setRandomPrompt] = useState('')
   const randomIndex = (arrSize) => {
     return Math.floor(Math.random() * arrSize)
   }
@@ -25,14 +26,13 @@ const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
 
       .then((res) => {
         console.log(res.data.prompts)
-        setPrompts(res.data.prompts)
-
+        // setPrompts(res.data.prompts)
+        setRandomPrompt(res.data.prompts[randomIndex(res.data.prompts.length)].prompt)
         // .then(() => setLoading(false))
       })
       .catch(console.error)
   }, []
   )
-
   return (
     <Card style={{ width: '40rem' }} className="shadow p-3 mb-5 bg-white rounded mx-auto" >
       <div className='row'>
@@ -40,7 +40,7 @@ const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
           <Card.Img variant="top" src="https://picsum.photos/286/180" />
           <Card.Body>
 
-            {prompts.length > 0 ? <Card.Title>{prompts[randomIndex(prompts.length)].prompt}</Card.Title> : <Card.Title>Loading...</Card.Title>}
+            <Card.Title>{randomPrompt}</Card.Title>
 
             <Form onSubmit={handleSubmit}>
 
@@ -58,4 +58,5 @@ const StoryForm = ({ handleChange, handleSubmit, title, story, user }) => {
 
   )
 }
+
 export default StoryForm

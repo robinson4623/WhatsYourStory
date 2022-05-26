@@ -3,8 +3,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import apiUrl from '../../apiConfig'
 import Card from 'react-bootstrap/card'
-// import Delete from './Delete'
-// import Update from './Update'
+import Update from './UpdateStory'
 
 export default function IndexStory ({ msgAlert, user }) {
   const [stories, setStories] = useState([])
@@ -48,8 +47,8 @@ export default function IndexStory ({ msgAlert, user }) {
           <h4>Title: {story.title}</h4>
           <p>Story: {story.story}</p>
           {/* <li>Upload ID: {upload._id}</li> */}
-          {/* <Update id={upload._id} user={user} msgAlert={msgAlert} />
-        <Delete id={upload._id} user={user} msgAlert={msgAlert} /> */}
+          <Update id={story.id} user={user} msgAlert={msgAlert} />
+          {/* <Delete id={upload._id} user={user} msgAlert={msgAlert} /> */}
         </Card>
       </div>
 

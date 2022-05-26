@@ -42,7 +42,12 @@ export default function Update ({ user, id, msgAlerts }) {
       headers: {
         Authorization: `Token ${user.token}`
       },
-      data: { updateStory }
+      data: {
+        story: {
+          title: title,
+          story: story
+        }
+      }
     })
       .then((res) => {
         console.log('Updated')
