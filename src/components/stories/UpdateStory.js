@@ -1,6 +1,7 @@
 import { Form, Row } from 'react-bootstrap'
 
 // import Button from 'react-bootstrap/Button'
+// import { Redirect } from 'react-router-dom'
 import React, { useState } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -24,14 +25,14 @@ export default function Update ({ user, id, msgAlert }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     // data.append('delete', selected)
-    const updateStory = {
+    // const updateStory = {
 
-      story: {
-        title: title,
-        story: story
-      }
-    }
-    console.log(updateStory)
+    //   story: {
+    //     title: title,
+    //     story: story
+    //   }
+    // }
+    // console.log(updateStory)
     axios({
       url: apiUrl + `/stories/${id}/`,
       method: 'PATCH',
@@ -46,7 +47,7 @@ export default function Update ({ user, id, msgAlert }) {
       }
     })
       .then((res) => {
-        console.log('Updated')
+        // console.log('Updated')
         return (res)
       })
       .then(() =>
@@ -64,19 +65,18 @@ export default function Update ({ user, id, msgAlert }) {
         })
       })
   }
-
   return (
     <div>
 
       <Form onSubmit={handleSubmit}>
         <div>
           <Row>
-            <input id="storyId" name="title" onChange={handleChangeTitle} type="text" placeholder="edit Title" value={title}></input>
+            <input className="p-1 mt-2"id="storyId" name="title" onChange={handleChangeTitle} type="text" placeholder="Title" value={title}></input>
           </Row>
           <Row>
-            <textarea id="storyId" name="story" onChange={handleChangeStory} type="textarea" placeholder="edit Story" value={story}></textarea>
+            <textarea className="p-1 mt-2" id="storyId" name="story" onChange={handleChangeStory} type="textarea" placeholder="Update story" value={story}></textarea>
           </Row>
-          <button value="submit" onClick={handleSubmit}>Update</button>
+          <button className="p-1 mt-2 btn-primary" value="submit" onClick={handleSubmit}>Update</button>
         </div>
       </Form>
 

@@ -1,9 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
+body, html {
+  height: 100%;
+}
+.bg {
+  background-image: url('./assets/1971385.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .Card {
     display: my-auto;
 }
 
 div {
-    font-family: 'Oregano', cursive;
+    font-family: 'Kalam', cursive;
 }

@@ -8,7 +8,7 @@ import { storyCreateSuccess, storyCreateFailure } from '../AutoDismissAlert/mess
 class CreateStory extends Component {
   constructor (props) {
     super(props)
-    console.log('props', props)
+    // console.log('props', props)
     // console.log(props.match.params.id)
 
     this.state = {
@@ -26,7 +26,7 @@ class CreateStory extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('event', event)
+    // console.log('event', event)
     const { user, msgAlert, history } = this.props
 
     createStory(this.state, user)
@@ -52,8 +52,6 @@ class CreateStory extends Component {
     }
     return (
       <>
-        <h4>Create a Story</h4>
-
         <StoryForm
           title={this.state.title}
           story={this.state.story}

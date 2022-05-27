@@ -2,8 +2,8 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 export const createPrompt = (data, user) => {
-  console.log('user', user)
-  console.log('data', data)
+  // console.log('user', user)
+  // console.log('data', data)
 
   return axios({
     method: 'POST',

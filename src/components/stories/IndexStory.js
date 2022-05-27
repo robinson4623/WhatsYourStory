@@ -45,8 +45,8 @@ export default function IndexStory ({ msgAlert, user }) {
           <div className='overflow story-index'>
             <img src='https://picsum.photos/286/180' alt='Random Image' />
           </div>
-          <h4>Title: {story.title}</h4>
-          <p>Story: {story.story}</p>
+          <h4>{story.title}</h4>
+          <p>{story.story}</p>
           {/* <li>Upload ID: {upload._id}</li> */}
           <Update id={story.id} user={user} msgAlert={msgAlert} />
           <Delete id={story.id} user={user} msgAlert={msgAlert} />
@@ -60,7 +60,6 @@ export default function IndexStory ({ msgAlert, user }) {
       <div>
         {/* {stories ? ([storyJSX]) : ('')}
         {loading ? (<img className='display-loading' alt='loading gif' src='https://cutewallpaper.org/21/loading-gif-transparent-background/Download-Loading-Gif-Generator-Transparent-Background-PNG-.gif' />) : ('')} */}
-        <h4>My Stories</h4>
         <p>{storyJSX}</p>
       </div>
     )

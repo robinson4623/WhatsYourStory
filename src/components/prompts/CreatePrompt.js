@@ -8,7 +8,7 @@ import { promptCreateSuccess, promptCreateFailure } from '../AutoDismissAlert/me
 class CreatePrompt extends Component {
   constructor (props) {
     super(props)
-    console.log('props', props)
+    // console.log('props', props)
     // console.log(props.match.params.id)
 
     this.state = {
@@ -26,9 +26,9 @@ class CreatePrompt extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('event', event)
+    // console.log('event', event)
     const { user, msgAlert, history } = this.props
-    console.log(history)
+    // console.log(history)
     createPrompt(this.state, user)
       .then(res => history.push('/prompts/' + res.data.prompt._id))
       .then(() =>

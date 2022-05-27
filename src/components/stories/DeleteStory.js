@@ -31,7 +31,7 @@ export default function Delete ({ user, msgAlert, id }) {
   return (
     <div>
       <div>
-        <button value="submit" onClick={handleSubmit}>Delete</button>
+        <button className="p-1 mt-2 btn-primary" value="submit" onClick={handleSubmit}>Delete</button>
       </div>
     </div>
   )
