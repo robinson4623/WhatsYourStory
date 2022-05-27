@@ -50,10 +50,10 @@ Backend:
 In preparation for work on this app, I planned out wireframes, entity relationship diagrams, and user stories which can be found below.  
 
 ### Wireframe
-![App Wireframe]([Imgur](https://i.imgur.com/3JhOOdW.jpg "What's your Story? App Wireframe")
+![App Wireframe](https://i.imgur.com/3JhOOdW.jpg)
 
 ### Entity Relationship Diagram (ERD)
-![App ERD](https://drive.google.com/file/d/1pWMG-DLMcj2gn4VO7MYLGdV2xWDafOPH/view?usp=sharing "What's Your Story? App ERD")
+![App ERD](https://i.imgur.com/xHHVzQf.jpg)
 
 ### User Stories
 As a user I want to be able to:
