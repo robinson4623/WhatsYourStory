@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://wys-api.herokuapp.com',
+  production: 'https://orca-app-z4ths.ondigitalocean.app/',
   development: 'http://localhost:8000'
 }
 
